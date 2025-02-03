@@ -111,5 +111,20 @@ use PSpell\Config;
             $nb=$req->execute();
             return $nb;
         }
+
+
+        /**
+         * Supprimer un continent
+         *
+         * @param Continent $continent
+         * @return integer
+         */
+        public static function delete(Continent $continent) :int
+        {
+            $req=MonPdo::getInstance()->prepare("delete from continent where num= :id");
+            $req->bindParam(':id',$continent->getNum());
+            $nb=$req->execute();
+            return $nb;
+        }
         
     }

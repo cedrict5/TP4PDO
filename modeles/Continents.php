@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+use PSpell\Config;
+
     class Continent{
         /**
          * numero du continent
@@ -66,12 +69,29 @@
          * @param integer $id numero du continent
          * @return Continent objet continent trouvé
          */
-        public static function findById(int $id) :Continent{
+        public static function findById(int $id) :Continent
+        {
             $req=MonPdo::getInstance()->prepare("Select * from continent where num= :id");
             $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
             $req->bindParam(':id',$id);
             $req->execute();
             $lesResultats=$req->fetchAll();
             return $lesResultats;
+        }
+
+
+        /**
+         * Ajout d'un continent
+         *
+         * @param Continent $continent continent à ajouter
+         * @return integer resultat (1 si l'operation a reussi, 0 sinon)
+         */
+        public static function add(Continent $continent): int
+        {
+            $req=MonPdo::getInstance()->prepare("insert into continent(libelle) values(:libelle)");
+            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
+            $req->bindParam(':id',$continent->getLibelle());
+            $nb=$req->execute();
+            return $nb;
         }
     }

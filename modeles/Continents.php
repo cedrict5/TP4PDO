@@ -58,7 +58,20 @@
             $req->execute();
             $lesResultats=$req->fetchAll();
             return $lesResultats;
+        }
 
-
+        /**
+         * Trouve un continent par son nom
+         *
+         * @param integer $id numero du continent
+         * @return Continent objet continent trouvé
+         */
+        public static function findById(int $id) :Continent{
+            $req=MonPdo::getInstance()->prepare("Select * from continent where num= :id");
+            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
+            $req->bindParam(':id',$id);
+            $req->execute();
+            $lesResultats=$req->fetchAll();
+            return $lesResultats;
         }
     }

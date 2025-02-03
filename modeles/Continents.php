@@ -94,4 +94,22 @@ use PSpell\Config;
             $nb=$req->execute();
             return $nb;
         }
+
+
+
+        /**
+         * modifier un continent
+         *
+         * @param Continent $continent continent à modifier
+         * @return integer resultat (1 si l'operation a reussi, 0 sinon)
+         */
+        public static function update(Continent $continent): int
+        {
+            $req=MonPdo::getInstance()->prepare("update continent set libelle= :libelle where num= :num");
+            $req->bindParam(':id',$continent->getNum());
+            $req->bindParam(':id',$continent->getLibelle());
+            $nb=$req->execute();
+            return $nb;
+        }
+        
     }

@@ -44,4 +44,21 @@
 
             return $this;
         }
+
+
+        /**
+         * retourne l'ensemble des continents
+         *
+         * @return Continent[] tab d'objet continent
+         */
+        public static function findAll() :array
+        {
+            $req=MonPdo::getInstance()->prepare("Select * from continent");
+            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
+            $req->execute();
+            $lesResultats=$req->fetchAll();
+            return $lesResultats;
+
+
+        }
     }

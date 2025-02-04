@@ -75,7 +75,7 @@ use PSpell\Config;
             $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
             $req->bindParam(':id',$id);
             $req->execute();
-            $lesResultats=$req->fetchAll();
+            $lesResultats=$req->fetch();
             return $lesResultats;
         }
 

@@ -123,10 +123,10 @@
 
 
         /**
-         * modifier un continent
+         * met a jour une nationalite
          *
-         * @param Continent $continent continent à modifier
-         * @return integer resultat (1 si l'operation a reussi, 0 sinon)
+         * @param Nationalite $nationalite
+         * @return integer
          */
         public static function update(Nationalite $nationalite): int
         {
@@ -139,12 +139,12 @@
         }
 
 
-        /**
-         * Supprimer un continent
-         *
-         * @param Continent $continent
-         * @return integer
-         */
+    /**
+     * supprimer une nationalité
+     *
+     * @param Nationalite $nationalite
+     * @return integer
+     */
         public static function delete(Nationalite $nationalite) :int
         {
             $req=MonPdo::getInstance()->prepare("delete from nationalite where num= :id");

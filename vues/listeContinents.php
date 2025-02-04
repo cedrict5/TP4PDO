@@ -18,10 +18,10 @@
     <?php
     foreach($lesContinents as $nationalite){
         echo "<tr class='d-flex'>";
-        echo "<td class='col-md-2'>$continent->getnum()</td>";
-        echo "<td class='col-md-5'>$continent->getLibelle()</td>";
+        echo "<td class='col-md-2'>".$continent->getnum()."</td>";
+        echo "<td class='col-md-5'>".$continent->getLibelle()."</td>";
         echo "<td class='col-md-2'>
-            <a href='formNationalite.php?action=Modifier&num=$continent->getNum()' class='btn btn-primary'><i class='fas fa-pen'></i></a>
+            <a href='formNationalite.php?action=Modifier&num=".$continent->getNum()."' class='btn btn-primary'><i class='fas fa-pen'></i></a>
             <a href='#modalSuppression' data-toggle='modal' data-message='Voulez vous supprimer cette nationalité ?' data-suppression='supprimerNationalite.php?num=$nationalite->num' class='btn btn-danger'><i class='far fa-trash-alt'></i></a>
         </td>";
         echo "</tr>";

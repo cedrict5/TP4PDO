@@ -1,4 +1,6 @@
-
+<?php 
+include('../modeles/monPdo.php');
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -55,12 +57,12 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-flag"></i>  Gestion des nationalités</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="listeNationalites.php">Liste des nationalités</a>
-              <a class="dropdown-item" href="formNationalite.php">Ajouter une nationalité</a>
+              <a class="dropdown-item" href="vues/listeNationalites.php">Liste des nationalités</a>
+              <a class="dropdown-item" href="vues/formNationalite.php">Ajouter une nationalité</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des auteurs</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des continents</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="index.php?uc=continents&action=list">Liste des continents</a>
               <a class="dropdown-item" href="#">Ajouter un continent</a>

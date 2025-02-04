@@ -1,6 +1,4 @@
-<?php 
-include('../modeles/monPdo.php');
-?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -71,7 +69,7 @@ include('../modeles/monPdo.php');
         </ul>
       </div>
     </nav>
-    
+
     <?php if(!empty($_SESSION['message'])){
         $mesMessages=$_SESSION['message'];
         foreach($mesMessages as $key=>$message){

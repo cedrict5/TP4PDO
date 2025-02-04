@@ -62,14 +62,13 @@
         }
 
         /**
-         * Set the value of numComtinent
+         * Set the value of numContinent
          *
          * @return  self
          */ 
         public function setNumContinent($numContinent)
         {
                 $this->numContinent = $numContinent;
-
                 return $this;
         }
 
@@ -81,8 +80,8 @@
          */
         public static function findAll() :array
         {
-            $req=MonPdo::getInstance()->prepare("Select * from nationalite");
-            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Nationalite');
+            $req=MonPdo::getInstance()->prepare("select n.num as 'numero', n.libelle as 'libNation', c.libelle as 'libContinent'  from nationalite n, continent c where n.numContinent=c.num");
+            $req->setFetchMode(PDO::FETCH_OBJ);
             $req->execute();
             $lesResultats=$req->fetchAll();
             return $lesResultats;

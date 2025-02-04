@@ -1,3 +1,4 @@
+
 <div class="container mt-5">
     
     <div class="row pt-3">
@@ -7,28 +8,28 @@
     </div>
 
     <table class="table table-hover table-striped">
-    <thead>
-        <tr class="d-flex">
-        <th scope="col" class="col-md-2">Numéro</th>
-        <th scope="col" class="col-md-5">Libellé</th>
-        <th scope="col" class="col-md-2">Actions</th>
-        </tr>
-    </thead>
+        <thead>
+            <tr class="d-flex">
+            <th scope="col" class="col-md-2">Numéro</th>
+            <th scope="col" class="col-md-8">Libellé</th>
+            <th scope="col" class="col-md-2">Actions</th>
+            </tr>
+        </thead>
     <tbody>
-    <?php
-    foreach($lesContinents as $nationalite){
-        echo "<tr class='d-flex'>";
-        echo "<td class='col-md-2'>".$continent->getnum()."</td>";
-        echo "<td class='col-md-5'>".$continent->getLibelle()."</td>";
-        echo "<td class='col-md-2'>
-            <a href='formNationalite.php?action=Modifier&num=".$continent->getNum()."' class='btn btn-primary'><i class='fas fa-pen'></i></a>
-            <a href='#modalSuppression' data-toggle='modal' data-message='Voulez vous supprimer cette nationalité ?' data-suppression='supprimerNationalite.php?num=$nationalite->num' class='btn btn-danger'><i class='far fa-trash-alt'></i></a>
-        </td>";
-        echo "</tr>";
-    }
+        <?php
+        foreach($lesContinents as $continent){
+            echo "<tr class='d-flex'>";
+            echo "<td class='col-md-2'>".$continent->getnum()."</td>";
+            echo "<td class='col-md-8'>".$continent->getLibelle()."</td>";
+            echo "<td class='col-md-2'>
+                <a href='formNationalite.php?action=Modifier&num=".$continent->getNum()."' class='btn btn-primary'><i class='fas fa-pen'></i></a>
+                <a href='#modalSuppression' data-toggle='modal' data-message='Voulez vous supprimer ce continent ?' data-suppression='supprimerNationalite.php?num=".$continent->getNum()."' class='btn btn-danger'><i class='far fa-trash-alt'></i></a>
+            </td>";
+            echo "</tr>";
+        }
 
-    ?>
-        
+        ?>
+            
     </tbody>
     </table>
 

@@ -1,5 +1,5 @@
 
-<?php include "header.php";
+<?php 
 $action=$_GET['action']; // soit Ajouter ou Modifier
 include "connexionPdo.php";
 

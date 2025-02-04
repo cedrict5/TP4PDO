@@ -1,6 +1,5 @@
 
-<?php include "header.php";
-include "../monPdo.php";
+<?php 
 // liste des nationalités
 $libelle="";
 $continentSel="Tous";

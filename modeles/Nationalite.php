@@ -13,7 +13,7 @@
         private $libelle;
 
         /**
-         * num continent(clé etrangere) relié à num de continent
+         * num nationalite(clé etrangere) relié à num de nationalite
          *
          * @var int
          */
@@ -24,7 +24,7 @@
         /**
          * Get the value of num
          */ 
-        public function getNum()
+        public function getNum() :
         {
             return $this->num;
         }
@@ -53,12 +53,13 @@
         }
 
         /**
-         * Get the value of numContinent
-         */ 
-        public function getNumNationalite()
+         * renvoie l'objet continent associé
+         *
+         * @return Continent
+         */
+        public function getNumContinent() : Continent
         {
-            $this->$numContinent = $numContinent;
-                return $this;
+            return Continent::findById($this->numContinent);
         }
 
         /**
@@ -66,9 +67,9 @@
          *
          * @return  self
          */ 
-        public function setNumContinent($numContinent)
+        public function setNumContinent(continent $continent) :self
         {
-                $this->numContinent = $numContinent;
+                $this->numContinent = $continent->getNum();
                 return $this;
         }
 
@@ -88,15 +89,15 @@
         }
 
         /**
-         * Trouve un continent par son nom
+         * Trouve une nationalite par son nom
          *
-         * @param integer $id numero du continent
-         * @return Continent objet continent trouvé
+         * @param integer $id numero du nationalite
+         * @return Nationalite objet nationalite trouvé
          */
-        public static function findById(int $id) :Continent
+        public static function findById(int $id) :Nationalite 
         {
             $req=MonPdo::getInstance()->prepare("Select * from nationalite where num= :id");
-            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
+            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Nationalite');
             $req->bindParam(':id',$id);
             $req->execute();
             $lesResultats=$req->fetchAll();
@@ -105,16 +106,16 @@
 
 
         /**
-         * Ajout d'un continent
+         * Ajout d'une nationalite
          *
-         * @param Continent $continent continent à ajouter
+         * @param Nationalite $nationalite nationalite à ajouter
          * @return integer resultat (1 si l'operation a reussi, 0 sinon)
          */
-        public static function add(Continent $continent): int
+        public static function add(Nationalite  $nationalite): int
         {
-            $req=MonPdo::getInstance()->prepare("insert into continent(libelle) values(:libelle)");
-            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
-            $req->bindParam(':id',$continent->getLibelle());
+            $req=MonPdo::getInstance()->prepare("insert into nationalite(libelle,numContinent) values(:libelle,:numContinent)");
+            $req->bindParam(':libelle',$nationalite->getLibelle());
+            $req->bindParam(':numContinent',$nationalite->getLibelle());
             $nb=$req->execute();
             return $nb;
         }

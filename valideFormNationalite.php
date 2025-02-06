@@ -33,7 +33,7 @@ if($nb == 1) {
 ?>
     </div>
 </div>
-<a href="listeNationalites.php" class="btn btn-primary"> Revenir à la liste des nationalités</a>
+<a href="index.php?uc=nationalites&action=list" class="btn btn-primary"> Revenir à la liste des nationalités</a>
 </div>
 
 

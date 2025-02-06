@@ -89,8 +89,8 @@ use PSpell\Config;
         public static function add(Continent $continent): int
         {
             $req=MonPdo::getInstance()->prepare("insert into continent(libelle) values(:libelle)");
-            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
-            $req->bindParam(':id',$continent->getLibelle());
+            $libelle=$continent->getLibelle();
+            $req->bindParam(':libelle',$libelle);
             $nb=$req->execute();
             return $nb;
         }
@@ -106,8 +106,10 @@ use PSpell\Config;
         public static function update(Continent $continent): int
         {
             $req=MonPdo::getInstance()->prepare("update continent set libelle= :libelle where num= :num");
-            $req->bindParam(':id',$continent->getNum());
-            $req->bindParam(':id',$continent->getLibelle());
+            $num=$continent->getNum();
+            $libelle=$continent->getLibelle();
+            $req->bindParam(':id',$num);
+            $req->bindParam(':id',$libelle);
             $nb=$req->execute();
             return $nb;
         }
@@ -127,4 +129,16 @@ use PSpell\Config;
             return $nb;
         }
         
+
+            /**
+             * Set numero du continent
+             *@param int $num numero du continent
+             * @return  self
+             */ 
+            public function setNum(int $num):self
+            {
+                        $this->num = $num;
+
+                        return $this;
+            }
     }

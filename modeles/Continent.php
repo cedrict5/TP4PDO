@@ -75,8 +75,8 @@ use PSpell\Config;
             $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
             $req->bindParam(':id',$id);
             $req->execute();
-            $lesResultats=$req->fetch();
-            return $lesResultats;
+            $leResultat=$req->fetch();
+            return $leResultat;
         }
 
 
@@ -124,7 +124,8 @@ use PSpell\Config;
         public static function delete(Continent $continent) :int
         {
             $req=MonPdo::getInstance()->prepare("delete from continent where num= :id");
-            $req->bindParam(':id',$continent->getNum());
+            $num=$continent->getNum();
+            $req->bindParam(':id',$num);
             $nb=$req->execute();
             return $nb;
         }

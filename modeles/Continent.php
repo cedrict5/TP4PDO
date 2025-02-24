@@ -90,7 +90,7 @@ use PSpell\Config;
         {
             $req=MonPdo::getInstance()->prepare("insert into continent(libelle) values(:libelle)");
             $libelle=$continent->getLibelle();
-            $req->bindParam(':libelle',$libelle);
+            $req->bindParam(':libelle', $libelle);
             $nb=$req->execute();
             return $nb;
         }
@@ -109,7 +109,7 @@ use PSpell\Config;
             $num=$continent->getNum();
             $libelle=$continent->getLibelle();
             $req->bindParam(':id',$num);
-            $req->bindParam(':id',$libelle);
+            $req->bindParam(':libelle',$libelle);
             $nb=$req->execute();
             return $nb;
         }
@@ -136,7 +136,7 @@ use PSpell\Config;
              *@param int $num numero du continent
              * @return  self
              */ 
-            public function setNum(int $num):self
+            public function setNum(int $num) :self
             {
                         $this->num = $num;
 

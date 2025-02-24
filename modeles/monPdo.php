@@ -7,7 +7,8 @@
 class MonPdo
     {
 
-    private static $serveur='mysql:host=srvmysql.btssio.dedyn.io';
+    #private static $serveur='mysql:host=srvmysql.btssio.dedyn.io';
+    private static $serveur='mysql:host=btssio.dedyn.io';
     private static $bdd='dbname=TIANANO_Biblio'; 
     private static $user='TIANANO'; 
     private static $mdp='05012006';
@@ -29,7 +30,7 @@ class MonPdo
     /**
     *	Fonction statique qui cree l'unique instance de la classe
     * Appel : $instanceMonPdo = MonPdo::getMonPdo();
-    *	@return l'unique objet de la classe MonPdo
+    *	@return /unique objet de la classe MonPdo
     */
     public static function getInstance()
     {

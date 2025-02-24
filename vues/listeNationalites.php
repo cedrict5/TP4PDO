@@ -49,6 +49,9 @@ if(!empty($_SESSION['message'])){
         
     </div>
 
+
+// liste des continents
+
     <form id="formRecherche" action="" method="get" class="border border-primary rounded p-3 mt-3 mb-3">
     <div class="row">
             <div class="col">
@@ -71,6 +74,7 @@ if(!empty($_SESSION['message'])){
         </div>
     </form>
 
+// affichage de la table
   
     <table class="table table-hover table-striped">
     <thead>

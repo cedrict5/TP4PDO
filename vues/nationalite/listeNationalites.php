@@ -1,46 +1,3 @@
-
-<?php 
-// liste des nationalités
-$libelle="";
-$continentSel="Tous";
-// construction de la requête
-$texteReq="select n.num, n.libelle as 'libNation', c.libelle as 'libContinent'  from nationalite n, continent c where n.numContinent=c.num";
-if(!empty($_GET)){
-    $libelle=$_GET['libelle'];
-    $continentSel=$_GET['continent'];
-    if( $libelle != "") { $texteReq.= " and n.libelle like '%" .$libelle."%'";}
-    if( $continentSel != "Tous") { $texteReq.= " and c.num =" .$continentSel;}
-}
-$texteReq.= " order by n.libelle";
-
-$req=$monPdo->prepare($texteReq);
-$req->setFetchMode(PDO::FETCH_OBJ);
-$req->execute();
-$lesNationalites=$req->fetchAll();
-
-// liste des continents
-$reqContinent=$monPdo->prepare("select * from continent");
-$reqContinent->setFetchMode(PDO::FETCH_OBJ);
-$reqContinent->execute();
-$lesContinents=$reqContinent->fetchAll();
-
-if(!empty($_SESSION['message'])){
-    $mesMessages=$_SESSION['message'];
-    foreach($mesMessages as $key=>$message){
-        echo '<div class="container pt-5" >
-                <div class="alert alert-'.$key.' alert-dismissible fade show" role="alert">'.$message.'    
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>';
-    }
-    $_SESSION['message']=[];
-}
-
-?>
-
-
 <div class="container mt-5">
     
     <div class="row pt-3">
@@ -49,10 +6,7 @@ if(!empty($_SESSION['message'])){
         
     </div>
 
-
-// liste des continents
-
-    <form id="formRecherche" action="" method="get" class="border border-primary rounded p-3 mt-3 mb-3">
+    <form id="formRecherche" action="index.php?uc=nationalites@action=list" method="post" class="border border-primary rounded p-3 mt-3 mb-3">
     <div class="row">
             <div class="col">
                 <input type="text" class='form-control' id='libelle' onInput="document.getElementById('formRecherche').submit()" placehoder='Saisir le libellé' name='libelle' value="<?php echo $libelle; ?>">
@@ -74,7 +28,6 @@ if(!empty($_SESSION['message'])){
         </div>
     </form>
 
-// affichage de la table
   
     <table class="table table-hover table-striped">
     <thead>
@@ -105,6 +58,3 @@ if(!empty($_SESSION['message'])){
     </table>
 
 </div>
-<?php include "footer.php";
-
-?>

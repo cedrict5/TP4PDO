@@ -1,21 +1,3 @@
-
-<?php 
-$action=$_GET['action']; // soit Ajouter ou Modifier
-
-if($action == "Modifier"){
-    $num=$_GET['num'];
-    $req=$monPdo->prepare("select * from nationalite where num= :num");
-    $req->setFetchMode(PDO::FETCH_OBJ);
-    $req->bindParam(':num', $num);
-    $req->execute();
-    $laNationalite=$req->fetch();
-    // liste des continents
-}
-    $reqContinent=$monPdo->prepare("select * from continent");
-    $reqContinent->setFetchMode(PDO::FETCH_OBJ);
-    $reqContinent->execute();
-    $lesContinents=$reqContinent->fetchAll();
-?>
 <div class="container mt-5">
 <h2 class='pt-3 text-center'><?php echo $action ?> une nationalité</h2>
     <form action="valideFormNationalite.php?action=<?php echo $action ?>" method="post" class="col-md-6 offset-md-3 border border-primary p-3 rounded">
@@ -41,6 +23,3 @@ if($action == "Modifier"){
             </div>
     </form>
 </div>
-<?php include "footer.php";
-
-?>

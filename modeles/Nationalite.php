@@ -81,14 +81,15 @@
          */
         public static function findAll(?string $libelle="", ?string $continent="") :array
         {
-            $req="select n.num as 'numero', n.libelle as 'libNation', c.libelle as 'libContinent'  from nationalite n, continent c where n.numContinent=c.num";
+            $texteReq= "select n.num as 'numero', n.libelle as 'libNation', c.libelle as 'libContinent'  from nationalite n, continent c where n.numContinent=c.num";
             if( $libelle != "") { 
                 $texteReq.= " and n.libelle like '%" .$libelle."%'";
             }
             if( $continent != "Tous") {
                  $texteReq.= " and c.num =" .$continent;
             }
-            $texteReq.=" order by n.libelle";
+            $texteReq.=" order by n.libelle;";
+
             $req=MonPdo::getInstance()->prepare($texteReq);
             $req->setFetchMode(PDO::FETCH_OBJ);
             $req->execute();

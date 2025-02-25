@@ -11,7 +11,6 @@ switch($action){
     }
     $lesContinents=Continent::findAll();
     $lesNationalites=Nationalite::findAll($libelle,$continentSel);
-    $lesNationalites = Nationalite::findAll();
             include('vues/nationalite/listeNationalites.php');
             break;
 

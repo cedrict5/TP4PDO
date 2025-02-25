@@ -29,7 +29,7 @@ switch($action){
             break;
 
         case 'valideForm';
-            ///$continent=new Continent();
+            $continent=new Continent();
             if(empty($_POST['num'])){//cas d'une création
                 $continent->setLibelle($_POST['libelle']);
                 $nb=Continent::add($continent);

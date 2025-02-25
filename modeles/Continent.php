@@ -105,7 +105,7 @@ use PSpell\Config;
          */
         public static function update(Continent $continent): int
         {
-            $req=MonPdo::getInstance()->prepare("update continent set libelle= :libelle where num= :num");
+            $req=MonPdo::getInstance()->prepare("update continent set libelle= :libelle where num= :id");
             $num=$continent->getNum();
             $libelle=$continent->getLibelle();
             $req->bindParam(':id',$num);

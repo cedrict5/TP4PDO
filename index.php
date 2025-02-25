@@ -1,4 +1,5 @@
-<?php session_start(); 
+<?php ob_start();
+session_start(); 
 include "modeles/Continent.php";
 include "modeles/monPdo.php";
 include "vues/header.php";

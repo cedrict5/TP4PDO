@@ -1,0 +1,145 @@
+<?php
+
+use PSpell\Config;
+
+    class Auteur{
+        /**
+         * numero du auteur
+         * @var int
+         */
+        private $num;
+
+        /**
+         * libelle du auteur
+         * @var string
+         */
+        private $libelle;
+
+
+
+        /**
+         * Get the value of num
+         */ 
+        public function getNum()
+        {
+            return $this->num;
+        }
+
+        /**
+         * lit le libellé
+         *
+         * @return string
+         */
+        public function getLibelle() : string
+        {
+            return $this->libelle;
+        }
+
+        /**
+         * ecrit ds le libelle
+         *
+         * @param string $libelle
+         * @return self
+         */
+        public function setLibelle(string $libelle) : self
+        {
+            $this->libelle = $libelle;
+
+            return $this;
+        }
+
+
+        /**
+         * retourne l'ensemble des auteurs
+         *
+         * @return Auteur[] tab d'objet auteur
+         */
+        public static function findAll() :array
+        {
+            $req=MonPdo::getInstance()->prepare("Select * from auteur");
+            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Auteur');
+            $req->execute();
+            $lesResultats=$req->fetchAll();
+            return $lesResultats;
+        }
+
+        /**
+         * Trouve un auteur par son nom
+         *
+         * @param integer $id numero du auteur
+         * @return Auteur objet auteur trouvé
+         */
+        public static function findById(int $id) :Auteur
+        {
+            $req=MonPdo::getInstance()->prepare("Select * from auteur where num= :id");
+            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Auteur');
+            $req->bindParam(':id',$id);
+            $req->execute();
+            $leResultat=$req->fetch();
+            return $leResultat;
+        }
+
+
+        /**
+         * Ajout d'un auteur
+         *
+         * @param Auteur $auteur auteur à ajouter
+         * @return integer resultat (1 si l'operation a reussi, 0 sinon)
+         */
+        public static function add(Auteur $auteur): int
+        {
+            $req=MonPdo::getInstance()->prepare("insert into auteur(libelle) values(:libelle)");
+            $libelle=$auteur->getLibelle();
+            $req->bindParam(':libelle', $libelle);
+            $nb=$req->execute();
+            return $nb;
+        }
+
+
+
+        /**
+         * modifier un auteur
+         *
+         * @param Auteur $auteur auteur à modifier
+         * @return integer resultat (1 si l'operation a reussi, 0 sinon)
+         */
+        public static function update(Auteur $auteur): int
+        {
+            $req=MonPdo::getInstance()->prepare("update auteur set libelle= :libelle where num= :id");
+            $num=$auteur->getNum();
+            $libelle=$auteur->getLibelle();
+            $req->bindParam(':id',$num);
+            $req->bindParam(':libelle',$libelle);
+            $nb=$req->execute();
+            return $nb;
+        }
+
+
+        /**
+         * Supprimer un auteur
+         *
+         * @param Auteur $auteur
+         * @return integer
+         */
+        public static function delete(Auteur $auteur) :int
+        {
+            $req=MonPdo::getInstance()->prepare("delete from auteur where num= :id");
+            $num=$auteur->getNum();
+            $req->bindParam(':id',$num);
+            $nb=$req->execute();
+            return $nb;
+        }
+        
+
+            /**
+             * Set numero du auteur
+             *@param int $num numero du auteur
+             * @return  self
+             */ 
+            public function setNum(int $num) :self
+            {
+                        $this->num = $num;
+
+                        return $this;
+            }
+    }

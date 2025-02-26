@@ -54,8 +54,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-male"></i> Gestion des auteurs</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#"><i class="fa-solid fa-list"></i> Liste des auteurs</a>
-              <a class="dropdown-item" href="#"><i class="fa-solid fa-plus"></i> Ajouter un auteur</a>
+              <a class="dropdown-item" href="index.php?uc=auteurs&action=list"><i class="fa-solid fa-list"></i> Liste des auteurs</a>
+              <a class="dropdown-item" href="index.php?uc=auteurs&action=add"><i class="fa-solid fa-plus"></i> Ajouter un auteur</a>
               <a class="dropdown-item" href="#"><i class="fa-solid fa-magnifying-glass"></i> Rechercher un auteur</a>
             </div>
           </li>

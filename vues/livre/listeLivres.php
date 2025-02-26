@@ -12,13 +12,13 @@
     <table class="table table-hover table-striped">
         <thead>
             <tr class="d-flex">
-            <th scope="col" class="col-md-2">Numéro</th>
+            <th scope="col" class="col-md-1">Numéro</th>
             <th scope="col" class="col-md-2">ISBN</th>
             <th scope="col" class="col-md-3">Titre</th>
             <th scope="col" class="col-md-1">Prix</th>
-            <th scope="col" class="col-md-2">Editeur</th>
+            <th scope="col" class="col-md-1">Editeur</th>
             <th scope="col" class="col-md-1">Année</th>
-            <th scope="col" class="col-md-2">Langue</th>
+            <th scope="col" class="col-md-1">Langue</th>
             <th scope="col" class="col-md-2">Auteur</th>
             <th scope="col" class="col-md-1">Genre</th>
         </tr>
@@ -27,15 +27,16 @@
         <?php
         foreach($lesLivres as $livre){
             echo "<tr class='d-flex'>";
-            echo "<td class='col-md-2'>".$livre->getnum()."</td>";
+            echo "<td class='col-md-1'>".$livre->getnum()."</td>";
             echo "<td class='col-md-2'>".$livre->getisbn()."</td>";
-            echo "<td class='col-md-8'>".$livre->getTitre()."</td>";
-            echo "<td class='col-md-8'>".$livre->getPrix()."</td>";
-            echo "<td class='col-md-8'>".$livre->getEditeur()."</td>";
-            echo "<td class='col-md-8'>".$livre->getAnnee()."</td>";
-            echo "<td class='col-md-8'>".$livre->getLangue()."</td>";
-            echo "<td class='col-md-8'>".$livre->getAuteur()."</td>";
-            echo "<td class='col-md-8'>".$livre->getGenre()."</td>";
+            echo "<td class='col-md-3'>".$livre->gettitre()."</td>";
+            echo "<td class='col-md-1'>".$livre->getprix()."</td>";
+            echo "<td class='col-md-1'>".$livre->getediteur()."</td>";
+            echo "<td class='col-md-1'>".$livre->getannee()."</td>";
+            echo "<td class='col-md-1'>".$livre->getlangue()."</td>";
+            echo "<td class='col-md-2'>".$livre->getauteur()."</td>";
+            echo "<td class='col-md-1'>".$livre->getgenre()."</td>";
+
             echo "<td class='col-md-2'>
                 <a href='index.php?uc=livres&action=update&num=".$livre->getNum()."' class='btn btn-primary'><i class='fas fa-pen'></i></a>
                 <a href='#modalSuppression' data-toggle='modal' data-message='Voulez vous supprimer ce livre ?' data-suppression='index.php?uc=livres&action=delete&num=".$livre->getNum()."' class='btn btn-danger'><i class='far fa-trash-alt'></i></a>

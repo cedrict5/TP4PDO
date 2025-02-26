@@ -27,6 +27,9 @@ switch($uc){
     case 'livres':
         include('controllers/livreController.php');
         break;
+    case 'auteur':
+        include('controllers/auteurController.php');
+        break;
 }
 include "vues/footer.php";
 ?>

@@ -38,32 +38,39 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des genres</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-layer-group"></i> Gestion des genres</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Liste des genres</a>
-              <a class="dropdown-item" href="#">Ajouter un genre</a>
+              <a class="dropdown-item" href="index.php?uc=genres&action=list"><i class="fa-solid fa-list"></i> Liste des genres</a>
+              <a class="dropdown-item" href="index.php?uc=genres&action=add"><i class="fa-solid fa-plus"></i> Ajouter un genre</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-book"></i> Gestion des livres</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="index.php?uc=livres&action=list"><i class="fa-solid fa-list"></i> Liste des livres</a>
+              <a class="dropdown-item" href="index.php?uc=livres&action=add"><i class="fa-solid fa-plus"></i> Ajouter un livre</a>
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-male"></i> Gestion des auteurs</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Liste des auteurs</a>
-              <a class="dropdown-item" href="#">Ajouter un auteur</a>
-              <a class="dropdown-item" href="#">rechercher un auteur</a>
+              <a class="dropdown-item" href="#"><i class="fa-solid fa-list"></i> Liste des auteurs</a>
+              <a class="dropdown-item" href="#"><i class="fa-solid fa-plus"></i> Ajouter un auteur</a>
+              <a class="dropdown-item" href="#"><i class="fa-solid fa-magnifying-glass"></i> Rechercher un auteur</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-flag"></i>  Gestion des nationalités</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-house-flag"></i> Gestion des nationalités</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="index.php?uc=nationalites&action=list">Liste des nationalités</a>
-              <a class="dropdown-item" href="index.php?uc=nationalites&action=add">Ajouter une nationalité</a>
+              <a class="dropdown-item" href="index.php?uc=nationalites&action=list"><i class="fa-solid fa-list"></i> Liste des nationalités</a>
+              <a class="dropdown-item" href="index.php?uc=nationalites&action=add"><i class="fa-solid fa-plus"></i> Ajouter une nationalité</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des continents</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-earth-europe"></i> Gestion des continents</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="index.php?uc=continents&action=list">Liste des continents</a>
-              <a class="dropdown-item" href="index.php?uc=continents&action=add">Ajouter un continent</a>
+              <a class="dropdown-item" href="index.php?uc=continents&action=list"><i class="fa-solid fa-list"></i> Liste des continents</a>
+              <a class="dropdown-item" href="index.php?uc=continents&action=add"><i class="fa-solid fa-plus"></i> Ajouter un continent</a>
             </div>
           </li>
         </ul>

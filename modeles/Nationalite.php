@@ -26,7 +26,7 @@
          */ 
         public function getNum() : int
         {
-            return $this->num;
+            return $this->num; //probleme
         }
 
         /**

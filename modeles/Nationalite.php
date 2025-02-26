@@ -57,7 +57,7 @@
          *
          * @return Continent
          */
-        public function getNumContinent() : Continent
+        public function getContinent() : Continent
         {
             return Continent::findById($this->numContinent);
         }
@@ -67,7 +67,7 @@
          *
          * @return  self
          */ 
-        public function setNumContinent(continent $continent) :self
+        public function setContinent(Continent $continent) :self
         {
                 $this->numContinent = $continent->getNum();
                 return $this;
@@ -140,9 +140,13 @@
         public static function update(Nationalite $nationalite): int
         {
             $req=MonPdo::getInstance()->prepare("update nationalite set libelle= :libelle, numContinent= :numContinent where num= :id");
-            $req->bindParam(':id',$nationalite->getNum());
-            $req->bindParam(':libelle',$nationalite->getLibelle());
-            $req->bindParam(':numContinent',$nationalite->numContinent);
+            $numid=$nationalite->getNum();
+            $libelle=$nationalite->getLibelle();
+            $numc=$nationalite->numContinent;
+
+            $req->bindParam(':id',$numid);
+            $req->bindParam(':libelle',$libelle);
+            $req->bindParam(':numContinent',$numc);
             $nb=$req->execute();
             return $nb;
         }
@@ -161,7 +165,19 @@
             $nb=$req->execute();
             return $nb;
         }
-        
 
-        
+
+        /**
+         * Set numero de nationalité
+         *
+         * @param  int  $num  numero de nationalité
+         *
+         * @return  self
+         */ 
+        public function setNum(int $num)
+        {
+                $this->num = $num;
+
+                return $this;
+        }
     }

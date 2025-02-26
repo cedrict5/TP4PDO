@@ -1,7 +1,7 @@
 <?php ob_start();
 session_start(); 
 include "modeles/Continent.php";
-include "modeles/nationalite.php";
+include "modeles/Nationalite.php";
 include "modeles/monPdo.php";
 include "vues/header.php";
 include "vues/messageFlash.php";

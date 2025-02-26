@@ -4,6 +4,7 @@ include "modeles/Continent.php";
 include "modeles/Nationalite.php";
 include "modeles/Genre.php";
 include "modeles/Livre.php";
+include "modeles/Auteur.php";
 include "modeles/monPdo.php";
 include "vues/header.php";
 include "vues/messageFlash.php";
@@ -27,7 +28,7 @@ switch($uc){
     case 'livres':
         include('controllers/livreController.php');
         break;
-    case 'auteur':
+    case 'auteurs':
         include('controllers/auteurController.php');
         break;
 }

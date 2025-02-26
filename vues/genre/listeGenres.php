@@ -13,9 +13,8 @@
         <thead>
             <tr class="d-flex">
             <th scope="col" class="col-md-2">Numéro</th>
-            <th scope="col" class="col-md-8">Nom</th>
-            <th scope="col" class="col-md-2">Prénom</th>
-            <th scope="col" class="col-md-2">Nationalité</th>
+            <th scope="col" class="col-md-8">Libellé</th>
+            <th scope="col" class="col-md-2">Actions</th>
             </tr>
         </thead>
     <tbody>

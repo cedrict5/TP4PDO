@@ -21,37 +21,7 @@
 
 
 
-        /**
-         * Get the value of num
-         */ 
-        public function getNum() : int
-        {
-            return $this->num; //probleme
-        }
-
-        /**
-         * lit le libellé
-         *
-         * @return string
-         */
-        public function getLibelle() : string
-        {
-            return $this->libelle;
-        }
-
-        /**
-         * ecrit ds le libelle
-         *
-         * @param string $libelle
-         * @return self
-         */
-        public function setLibelle(string $libelle) : self
-        {
-            $this->libelle = $libelle;
-
-            return $this;
-        }
-
+        
         /**
          * renvoie l'objet continent associé
          *
@@ -167,6 +137,9 @@
         }
 
 
+
+
+
         /**
          * Set numero de nationalité
          *
@@ -180,4 +153,37 @@
 
                 return $this;
         }
+        /**
+         * Get the value of num
+         */ 
+        public function getNum() : int
+        {
+            return $this->num; //probleme
+        }
+
+        
+        /**
+         * lit le libellé
+         *
+         * @return string
+         */
+        public function getLibelle() : string
+        {
+            return $this->libelle;
+        }
+
+        /**
+         * ecrit ds le libelle
+         *
+         * @param string $libelle
+         * @return self
+         */
+        public function setLibelle(string $libelle) : self
+        {
+            $this->libelle = $libelle;
+
+            return $this;
+        }
+
+
     }

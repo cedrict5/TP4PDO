@@ -27,15 +27,15 @@
         <?php
         foreach($lesLivres as $livre){
             echo "<tr class='d-flex'>";
-            echo "<td class='col-md-1'>".$livre->getnum()."</td>";
-            echo "<td class='col-md-2'>".$livre->getisbn()."</td>";
-            echo "<td class='col-md-3'>".$livre->gettitre()."</td>";
-            echo "<td class='col-md-1'>".$livre->getprix()."</td>";
-            echo "<td class='col-md-1'>".$livre->getediteur()."</td>";
-            echo "<td class='col-md-1'>".$livre->getannee()."</td>";
-            echo "<td class='col-md-1'>".$livre->getlangue()."</td>";
-            echo "<td class='col-md-2'>".$livre->getauteur()."</td>";
-            echo "<td class='col-md-1'>".$livre->getgenre()."</td>";
+            echo "<td class='col-md-1'>".$livre->getNum()."</td>";
+            echo "<td class='col-md-2'>".$livre->getIsbn()."</td>";
+            echo "<td class='col-md-3'>".$livre->getTitre()."</td>";
+            echo "<td class='col-md-1'>".$livre->getPrix()."</td>";
+            echo "<td class='col-md-1'>".$livre->getEditeur()."</td>";
+            echo "<td class='col-md-1'>".$livre->getAnnee()."</td>";
+            echo "<td class='col-md-1'>".$livre->getLangue()."</td>";
+            echo "<td class='col-md-2'>".$livre->getAuteur()."</td>";
+            echo "<td class='col-md-1'>".$livre->getGenre()."</td>";
 
             echo "<td class='col-md-2'>
                 <a href='index.php?uc=livres&action=update&num=".$livre->getNum()."' class='btn btn-primary'><i class='fas fa-pen'></i></a>

@@ -335,7 +335,7 @@ use PSpell\Config;
         /**
          * Get nom de l'auteur #gettersetter
          *
-         * @return  string
+         * @return string
          */ 
         public function getAuteur()
         {

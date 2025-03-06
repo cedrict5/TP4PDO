@@ -1,23 +1,23 @@
 <?php
 $action=$_GET['action'];
 switch($action){
-        case 'list';
+        case 'list':
             $lesLivres = Livre::findAll();
             include('vues/livre/listeLivres.php');
             break;
 
-        case 'add';
+        case 'add':
             $mode="Ajouter";
             include('vues/livre/formLivre.php');
             break;
 
-        case 'update';
+        case 'update':
             $mode="Modifier";
             $livre=Livre::findById($_GET['num']);
             include('vues/livre/formLivre.php');
             break;
 
-        case 'delete';
+        case 'delete':
             $livre=Livre::findById($_GET['num']);
             $nb=Livre::delete($livre);
             if($nb==1){
@@ -28,7 +28,7 @@ switch($action){
             header('location:index.php?uc=livres&action=list');
             break;
 
-        case 'valideForm';
+        case 'valideForm':
             $livre=new Livre();
             if(empty($_POST['num'])){//cas d'une création
                 $livre->setTitre($_POST['titre']);

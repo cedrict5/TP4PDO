@@ -72,8 +72,9 @@ use PSpell\Config;
          */
         public static function findAll() :array
         {
-            $req=MonPdo::getInstance()->prepare("Select * from livre");
-            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Livre');
+            $req=MonPdo::getInstance()->prepare("Select livre.* , auteur.nom as nomauteur, genre.libelle as nomgenre from livre 
+            join genre on livre.numGenre=genre.num join auteur on livre.numAuteur=auteur.num");
+            $req->setFetchMode(PDO::FETCH_OBJ);
             $req->execute();
             $lesResultats=$req->fetchAll();
             return $lesResultats;

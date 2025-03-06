@@ -38,8 +38,8 @@ use PSpell\Config;
          */
         public static function findAll() :array
         {
-            $req=MonPdo::getInstance()->prepare("Select num, nom, prenom from auteur");
-            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Auteur');
+            $req=MonPdo::getInstance()->prepare("Select auteur.*, nationalite.libelle as libnation from auteur join nationalite on auteur.numNationalite=nationalite.num");
+            $req->setFetchMode(PDO::FETCH_OBJ);
             $req->execute();
             $lesResultats=$req->fetchAll();
             return $lesResultats;

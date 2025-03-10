@@ -55,7 +55,7 @@
             if( $libelle != "") { 
                 $texteReq.= " and n.libelle like '%" .$libelle."%'";
             }
-            if( $continent != "Tous") {
+            if( $continent != "") {
                  $texteReq.= " and c.num =" .$continent;
             }
             $texteReq.=" order by n.libelle;";

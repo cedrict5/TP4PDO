@@ -9,6 +9,8 @@ switch($action){
 
         case 'add':
             $mode="Ajouter";
+            $lesNationalites=Nationalite::findAll();
+  
             include('vues/auteur/formAuteur.php');
             break;
 
@@ -34,7 +36,7 @@ switch($action){
             if(empty($_POST['num'])){//cas d'une création
                 $auteur->setNom($_POST['nom']);
                 $auteur->setPrenom($_POST['prenom']);
-                $auteur->setNationalite($_POST['nationalite']);
+                $auteur->setNationalite($_POST['numNationalite']);
 
                 $nb=Auteur::add($auteur);
                 $message ="ajouté"; 
@@ -42,7 +44,7 @@ switch($action){
                 $auteur->setNum($_POST['num']);
                 $auteur->setNom($_POST['nom']);
                 $auteur->setPrenom($_POST['prenom']);
-                $auteur->setNationalite($_POST['nationalite']);
+                $auteur->setNationalite($_POST['numNationalite']);
 
                 $nb=Auteur::update($auteur);
                 $message ="modifié";

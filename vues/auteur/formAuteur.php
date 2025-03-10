@@ -15,9 +15,9 @@
                 <?php 
                     foreach($lesNationalites as $nationalite){
                         if($mode == "Modifier"){
-                        $selection=$nationalite->getNum()== $auteur->getNationalite()->getNum() ? 'selected' : '';
+                        $selection=$nationalite->numero== $auteur->getNationalite()->getNum() ? 'selected' : '';
                         }
-                        echo "<option value='".$nationalite->getNum() ."'". $selection .">". $nationalite->getLibelle() ."</option>";
+                        echo "<option value='".$nationalite->numero ."'". $selection .">". $nationalite->libNation ."</option>";
                     }
                     ?>
                 </select>

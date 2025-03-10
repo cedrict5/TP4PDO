@@ -47,6 +47,7 @@ switch($action){
                 $nb=Nationalite::add($nationalite);
                 $message ="ajouté"; 
             }else{//cas d'une modif
+                $nationalite->setNum(($_POST["num"]));
                 $nb=Nationalite::update($nationalite);
                 $message ="modifié";
             }

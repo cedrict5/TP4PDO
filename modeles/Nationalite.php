@@ -158,7 +158,7 @@
          */ 
         public function getNum() : int
         {
-            return $this->num; //probleme
+            return $this->num; 
         }
 
         

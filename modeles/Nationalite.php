@@ -49,13 +49,13 @@
          *
          * @return Nationalite[] tab d'objet Nationalite
          */
-        public static function findAll(?string $libelle="", ?string $continent="") :array
+        public static function findAll(?string $libelle="", ?string $continent="Tous") :array
         {
             $texteReq= "select n.num as 'numero', n.libelle as 'libNation', c.libelle as 'libContinent'  from nationalite n, continent c where n.numContinent=c.num";
             if( $libelle != "") { 
                 $texteReq.= " and n.libelle like '%" .$libelle."%'";
             }
-            if( $continent != "") {
+            if( $continent != "Tous") {
                  $texteReq.= " and c.num =" .$continent;
             }
             $texteReq.=" order by n.libelle;";
@@ -158,7 +158,7 @@
          */ 
         public function getNum() : int
         {
-            return $this->num; 
+            return $this->num; //probleme
         }
 
         

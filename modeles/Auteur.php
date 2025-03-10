@@ -70,10 +70,10 @@ use PSpell\Config;
          */
         public static function add(Auteur $auteur): int
         {
-            $req=MonPdo::getInstance()->prepare("insert into auteur(nom,prenom,nationalite) values(:nom,:prenom,:nationalite)");
+            $req=MonPdo::getInstance()->prepare("insert into auteur(nom,prenom,numNationalite) values(:nom,:prenom,:nationalite)");
             $nom=$auteur->getNom();
             $prenom=$auteur->getPrenom();
-            $nationalite=$auteur->getNationalite();
+            $nationalite=$auteur->getNationalite()->getNum();
             $req->bindParam(':nom',$nom);
             $req->bindParam(':prenom', $prenom);
             $req->bindParam(':nationalite', $nationalite);

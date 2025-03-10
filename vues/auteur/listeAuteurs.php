@@ -32,7 +32,7 @@
 
   
             
-            echo "<td class='col-md-'>
+            echo "<td class='col-md-2'>
                 <a href='index.php?uc=auteurs&action=update&num=".$auteur->num."' class='btn btn-primary'><i class='fas fa-pen'></i></a>
                 <a href='#modalSuppression' data-toggle='modal' data-message='Voulez vous supprimer ce auteur ?' data-suppression='index.php?uc=auteurs&action=delete&num=".$auteur->num."' class='btn btn-danger'><i class='far fa-trash-alt'></i></a>
             </td>";

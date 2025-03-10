@@ -10,6 +10,7 @@ switch($action){
         case 'add':
             $mode="Ajouter";
             $lesNationalites=Nationalite::findAll();
+            var_dump($lesNationalites);
   
             include('vues/auteur/formAuteur.php');
             break;

@@ -35,7 +35,7 @@
                         <?php 
                         foreach($lesAuteurs as $auteur){
                             if($mode == "Modifier"){
-                            $selection=$auteur->num== $lAuteur->getAuteur()->getNum() ? 'selected' : '';
+                            $selection=$auteur->num== $lAuteur->getNum() ? 'selected' : '';
                             }
                             echo "<option value='".$auteur->num ."'". $selection .">". $auteur->nom."</option>";
                         }

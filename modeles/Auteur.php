@@ -91,13 +91,13 @@ use PSpell\Config;
          */
         public static function update(Auteur $auteur): int
         {
-            $req=MonPdo::getInstance()->prepare("update auteur set(nom=:nom, prenom=:prenom, nationalite=:nationalite) where num= :id");
+            $req=MonPdo::getInstance()->prepare("update auteur set nom=:nom, prenom=:prenom, numNationalite=:nationalite where num= :num");
             $num=$auteur->getNum();
             $nom=$auteur->getNom();
             $prenom=$auteur->getPrenom();
-            $nationalite=$auteur->getNationalite();
+            $nationalite=$auteur->getNationalite()->getNum();
 
-            $req->bindParam(':id',$num);
+            $req->bindParam(':num',$num);
             $req->bindParam(':nom',$nom);
             $req->bindParam(':prenom',$prenom);
             $req->bindParam(':nationalite',$nationalite);

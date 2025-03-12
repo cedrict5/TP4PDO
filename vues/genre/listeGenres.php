@@ -1,11 +1,11 @@
 
 <div class="container mt-5">
     
-    <div class="row pt-3">
+    <div class="row pt-5">
         <div class="col-9">
             <h2>Liste des genres</h2>
         </div>
-        <div class="col-3"><a href="index.php?uc=genres&action=add" class='btn btn-success'><i class="fas fa-plus-circle"></i> Créer un genre</a> </div>
+        <div class="col-4"><a href="index.php?uc=genres&action=add" class='btn btn-success'><i class="fas fa-plus-circle"></i> Créer un genre</a> </div>
         
     </div>
 

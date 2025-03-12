@@ -1,7 +1,7 @@
 
 <div class="container mt-5">
     
-    <div class="row pt-3">
+    <div class="row pt-5">
         <div class="col-9">
             <h2>Liste des continents</h2>
         </div>
@@ -14,7 +14,7 @@
             <tr class="d-flex">
             <th scope="col" class="col-md-2">Numéro</th>
             <th scope="col" class="col-md-8">Libellé</th>
-            <th scope="col" class="col-md-2">Actions</th>
+            <th scope="col" class="col-md-1">Actions</th>
             </tr>
         </thead>
     <tbody>
@@ -23,7 +23,7 @@
             echo "<tr class='d-flex'>";
             echo "<td class='col-md-2'>".$continent->getnum()."</td>";
             echo "<td class='col-md-8'>".$continent->getLibelle()."</td>";
-            echo "<td class='col-md-2'>
+            echo "<td class='col-md-1'>
                 <a href='index.php?uc=continents&action=update&num=".$continent->getNum()."' class='btn btn-primary'><i class='fas fa-pen'></i></a>
                 <a href='#modalSuppression' data-toggle='modal' data-message='Voulez vous supprimer ce continent ?' data-suppression='index.php?uc=continents&action=delete&num=".$continent->getNum()."' class='btn btn-danger'><i class='far fa-trash-alt'></i></a>
             </td>";

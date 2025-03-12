@@ -7,10 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Jumbotron Template · Bootstrap</title>
+    <title>TP4PDO</title>
 
     <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.css">
+<!-- <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.css">-->
+<link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css">   
     <style>
@@ -25,16 +26,17 @@
         }
       }
     </style>
+
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-      <a class="navbar-brand pl-5" href="index.php">Ma Bibliothèque</a>
+      <a class="navbar-brand p-2" href="index.php">Ma Bibliothèque</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">

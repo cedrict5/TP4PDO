@@ -47,15 +47,18 @@ switch($action){
                 $livre->setGenre($_POST['genre']);
                 $nb=Livre::add($livre);
                 $message ="ajouté"; 
-            }else{//cas d'une modif
-                $livre->setIsbn($_POST['isbn']);
+
+            }else{//cas d'une modif 
+                //$livre->setNum($_POST['num']);
                 $livre->setTitre($_POST['titre']);
                 $livre->setPrix($_POST['prix']);
                 $livre->setEditeur($_POST['editeur']);
                 $livre->setAnnee($_POST['annee']);
                 $livre->setLangue($_POST['langue']);
-                $livre->setAuteur($_POST['auteur']);
-                $livre->setGenre($_POST['genre']);
+                $lauteur=Auteur::findById($_POST['auteur']);
+                $livre->setAuteur($lauteur);
+                $legenre=Genre::findById($_POST['genre']);
+                $livre->setGenre($legenre);
                 $nb=Livre::update($livre);
                 $message ="modifié";
             }

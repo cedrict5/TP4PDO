@@ -12,7 +12,7 @@
                 value="<?php if($mode == "Modifier") {echo $livre->getTitre() ;} ?>">
                 
                 <label for='prix' > Prix </label>
-                <input type="text" class='form-control ' id='prix' placehoder='Saisir le prix' name='prix' 
+                <input type="number" class='form-control ' id='prix' placehoder='Saisir le prix' name='prix' 
                 value="<?php if($mode == "Modifier") {echo $livre->getPrix() ;} ?>">
                 
                 <label for='editeur' > Editeur </label>
@@ -20,7 +20,7 @@
                 value="<?php if($mode == "Modifier") {echo $livre->getEditeur() ;} ?>">
                 
                 <label for='annee' > Année </label>
-                <input type="text" class='form-control ' id='annee' placehoder="'Saisir l'annee'" name='annee' 
+                <input type="number" class='form-control ' id='annee' placehoder="'Saisir l'annee'" name='annee' 
                 value="<?php if($mode == "Modifier") {echo $livre->getAnnee() ;} ?>">
 
                 <label for='langue' > Langue</label>
@@ -35,7 +35,7 @@
                         <?php 
                         foreach($lesAuteurs as $auteur){
                             if($mode == "Modifier"){
-                            $selection=$auteur->num== $lAuteur->getNum() ? 'selected' : '';
+                            $selection=$auteur->num== $lAuteur->getAuteur()->getNum() ? 'selected' : '';
                             }
                             echo "<option value='".$auteur->num ."'". $selection .">". $auteur->nom."</option>";
                         }

@@ -88,9 +88,9 @@ use PSpell\Config;
          */
         public static function findById(int $id) :Livre
         {
-            $req=MonPdo::getInstance()->prepare("Select * from livre where num= :id");
+            $req=MonPdo::getInstance()->prepare("Select * from livre where num= :num");
             $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Livre');
-            $req->bindParam(':id',$id);
+            $req->bindParam(':num',$id);
             $req->execute();
             $leResultat=$req->fetch();
             return $leResultat;
@@ -119,8 +119,6 @@ use PSpell\Config;
             return $nb;
         }
         
-        
-        
         /**
          * modifier un livre
          *
@@ -129,7 +127,7 @@ use PSpell\Config;
          */
         public static function update(Livre $livre): int
         {
-            $req=MonPdo::getInstance()->prepare("update livre set (isbn=:isbn, titre= :titre, prix=:prix,
+            $req=MonPdo::getInstance()->prepare("update livre set isbn=:isbn, titre= :titre, prix=:prix,
             editeur=:editeur, annee=:annee, langue=:langue, numauteur=:numauteur, numgenre=:numgenre");
             $req->bindParam(':isbn', $livre->isbn);
             $req->bindParam(':titre', $livre->titre);
@@ -357,7 +355,7 @@ use PSpell\Config;
         /**
          * Set nom de l'auteur #gettersetter
          *
-         * @param  string  $auteur  nom de l'auteur #gettersetter
+         * @param  string  $numauteur  nom de l'auteur #gettersetter
          *
          * @return  self
          */ 
@@ -374,7 +372,7 @@ use PSpell\Config;
         /**
          * Get genre du livre #gettersetter
          *
-         * @return  string
+         * @return string
          */ 
         public function getGenre()
         {
@@ -383,14 +381,13 @@ use PSpell\Config;
         /**
          * Set genre du livre #gettersetter
          *
-         * @param  string  $genre  genre du livre #gettersetter
+         * @param string $genre  genre du livre #gettersetter
          *
          * @return  self
          */ 
         public function setGenre(string $genre)
         {
                 $this->genre = $genre;
-
                 return $this;
         }
     }

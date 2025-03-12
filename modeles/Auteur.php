@@ -36,9 +36,19 @@ use PSpell\Config;
          *
          * @return Auteur[] tab d'objet auteur
          */
-        public static function findAll() :array
+        public static function findAll(?string $libelle="", ?string $nationalite="Toutes") :array
         {
-            $req=MonPdo::getInstance()->prepare("Select auteur.*, nationalite.libelle as libnation from auteur join nationalite on auteur.numNationalite=nationalite.num");
+        $texteReq="Select auteur.*, nationalite.libelle as libnation from auteur join nationalite on auteur.numNationalite=nationalite.num";
+        if( $libelle != "") { 
+        $texteReq.= " and n.libelle like '%" .$libelle."%'";
+        }
+        if( $nationalite != "Toutes") {
+        $texteReq.= " and nationalite.num =" .$nationalite;
+        }
+        $texteReq.=" order by nationalite.libelle;";
+
+
+            $req=MonPdo::getInstance()->prepare($texteReq);
             $req->setFetchMode(PDO::FETCH_OBJ);
             $req->execute();
             $lesResultats=$req->fetchAll();

@@ -105,9 +105,16 @@ use PSpell\Config;
          */
         public static function add(Livre $livre): int
         {
-            $req=MonPdo::getInstance()->prepare("insert into livre values(:num,:isbn,:titre,:prix,:editeur,:annee,:langue,:auteur,:genre)");
-            $titre=$livre->getTitre();
-            $req->bindParam(':num', $titre);
+            $req=MonPdo::getInstance()->prepare("insert into livre(isbn,titre,prix,editeur,annee,langue,numauteur,numgenre) 
+            values(:isbn,:titre,:prix,:editeur,:annee,:langue,:numauteur,:numgenre)");
+            $req->bindParam(':isbn', $livre->isbn);
+            $req->bindParam(':titre', $livre->titre);
+            $req->bindParam(':prix', $livre->prix);
+            $req->bindParam(':editeur', $livre->editeur);
+            $req->bindParam(':annee', $livre->annee);
+            $req->bindParam(':langue', $livre->langue);
+            $req->bindParam(':numauteur', $livre->auteur);
+            $req->bindParam(':numgenre', $livre->genre);
             $nb=$req->execute();
             return $nb;
         }
@@ -122,11 +129,16 @@ use PSpell\Config;
          */
         public static function update(Livre $livre): int
         {
-            $req=MonPdo::getInstance()->prepare("update livre set titre= :titre where num= :id");
-            $num=$livre->getNum();
-            $titre=$livre->getTitre();
-            $req->bindParam(':id',$num);
-            $req->bindParam(':titre',$titre);
+            $req=MonPdo::getInstance()->prepare("update livre set (isbn=:isbn, titre= :titre, prix=:prix,
+            editeur=:editeur, annee=:annee, langue=:langue, numauteur=:numauteur, numgenre=:numgenre");
+            $req->bindParam(':isbn', $livre->isbn);
+            $req->bindParam(':titre', $livre->titre);
+            $req->bindParam(':prix', $livre->prix);
+            $req->bindParam(':editeur', $livre->editeur);
+            $req->bindParam(':annee', $livre->annee);
+            $req->bindParam(':langue', $livre->langue);
+            $req->bindParam(':numauteur', $livre->auteur);
+            $req->bindParam(':numgenre', $livre->genre);
             $nb=$req->execute();
             return $nb;
         }

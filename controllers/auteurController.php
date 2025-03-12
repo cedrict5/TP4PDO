@@ -10,7 +10,6 @@ switch($action){
         case 'add':
             $mode="Ajouter";
             $lesNationalites=Nationalite::findAll();
-
   
             include('vues/auteur/formAuteur.php');
             break;
@@ -18,6 +17,7 @@ switch($action){
         case 'update':
             $mode="Modifier";
             $auteur=Auteur::findById($_GET['num']);
+            $lesNationalites=Nationalite::findAll();
             include('vues/auteur/formAuteur.php');
             break;
 

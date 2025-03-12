@@ -27,7 +27,7 @@
             <input type="hidden" id="num" name="num" value="<?php if($mode == "Modifier") {echo $auteur->getNum();} ?>">
             <div class="row">
                 <div class="col"> <a href="index.php?uc=auteurs&action=list" class='btn btn-warning btn-block'>Revenir à la liste</a> </div>
-                <div class="col"><button type='submit' class='btn btn-success btn-block'> <?php echo $mode ?> </button> </div>
+                <div class="col"><button type='submit' class='btn btn-success btn-block '> <?php echo $mode ?> </button> </div>
             </div>
     </form>
 </div>

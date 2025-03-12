@@ -33,12 +33,12 @@ switch($action){
             if($nb==1){
                 $_SESSION['message']=["success"=>"Le nationalite a bien été supprimé"];
             }else{
-                $_SESSION['message']=["danger"=>"Le nationalite a bien été supprimé"];
+                $_SESSION['message']=["danger"=>"Le nationalite n'a pas été supprimé"];
             }
             header('location:index.php?uc=nationalites&action=list');
             break;
 
-        case 'validerForm':
+        case 'valideForm':
             $nationalite=new Nationalite();
             $continent=Continent::findById($_POST['continent']);
             $nationalite->setLibelle($_POST['libelle']) //2 setter

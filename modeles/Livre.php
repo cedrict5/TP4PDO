@@ -59,6 +59,10 @@ use PSpell\Config;
          */
         private $genre;
 
+        private $numAuteur;
+
+        private $numGenre;
+
 
         
         
@@ -129,6 +133,7 @@ use PSpell\Config;
         {
             $req=MonPdo::getInstance()->prepare("update livre set isbn=:isbn, titre= :titre, prix=:prix,
             editeur=:editeur, annee=:annee, langue=:langue, numauteur=:numauteur, numgenre=:numgenre");
+            $req->bindParam(':num', $livre->getNum());
             $req->bindParam(':isbn', $livre->isbn);
             $req->bindParam(':titre', $livre->titre);
             $req->bindParam(':prix', $livre->prix);
@@ -388,6 +393,47 @@ use PSpell\Config;
         public function setGenre(string $genre)
         {
                 $this->genre = $genre;
+                return $this;
+        }
+
+        /**
+         * Get the value of numAuteur
+         */ 
+        public function getNumAuteur()
+        {
+                return Auteur::findById($this->numAuteur);
+                 
+        }
+
+        /**
+         * Set the value of numAuteur
+         *
+         * @return  self
+         */ 
+        public function setNumAuteur($numAuteur)
+        {
+                $this->numAuteur = $numAuteur;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of numGenre
+         */ 
+        public function getNumGenre()
+        {
+                return Genre::findById($this->numGenre);
+        }
+
+        /**
+         * Set the value of numGenre
+         *
+         * @return  self
+         */ 
+        public function setNumGenre($numGenre)
+        {
+                $this->numGenre = $numGenre;
+
                 return $this;
         }
     }

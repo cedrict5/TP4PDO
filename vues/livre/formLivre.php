@@ -35,14 +35,14 @@
                         <?php 
                         foreach($lesAuteurs as $auteur){
                             if($mode == "Modifier"){
-                            $selection=$auteur->num== $lAuteur->getAuteur()->getNum() ? 'selected' : '';
+                            $selection=$auteur->num == $livre->getAuteur()->getNum() ? 'selected' : '';
                             }
                             echo "<option value='".$auteur->num ."'". $selection .">". $auteur->nom."</option>";
                         }
                         ?>
                     </select>
                 </div>
-                <input type="hidden" id="num" name="num" value="<?php if($mode == "Modifier") {echo $lAuteur->getNum();} ?>">
+                <input type="hidden" id="num" name="num" value="<?php if($mode == "Modifier") {echo $livre->getNum();} ?>">
 
                 <div class="form-group">
                     <label for='genre' > Genre </label>

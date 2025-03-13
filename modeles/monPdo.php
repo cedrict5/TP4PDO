@@ -7,8 +7,8 @@
 class MonPdo
     {
 
-    #private static $serveur='mysql:host=srvmysql.btssio.dedyn.io';
-    private static $serveur='mysql:host=btssio.dedyn.io';
+    private static $serveur='mysql:host=srvmysql.btssio.dedyn.io';
+    #private static $serveur='mysql:host=btssio.dedyn.io';
     private static $bdd='dbname=TIANANO_Biblio'; 
     private static $user='TIANANO'; 
     private static $mdp='05012006';

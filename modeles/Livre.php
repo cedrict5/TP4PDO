@@ -371,7 +371,26 @@ use PSpell\Config;
                 return $this;
         }
 
+        /**
+         * Get the value of numAuteur
+         */ 
+        public function getNumAuteur()
+        {
+                return Auteur::findById($this->numAuteur);
+                 
+        }
 
+        /**
+         * Set the value of numAuteur
+         *
+         * @return  self
+         */ 
+        public function setNumAuteur($numAuteur)
+        {
+                $this->numAuteur = $auteur->getNum();
+
+                return $this;
+        }
 
         //GETSETTER DES GENRES
         /**
@@ -396,26 +415,7 @@ use PSpell\Config;
                 return $this;
         }
 
-        /**
-         * Get the value of numAuteur
-         */ 
-        public function getNumAuteur()
-        {
-                return Auteur::findById($this->numAuteur);
-                 
-        }
-
-        /**
-         * Set the value of numAuteur
-         *
-         * @return  self
-         */ 
-        public function setNumAuteur($numAuteur)
-        {
-                $this->numAuteur = $numAuteur;
-
-                return $this;
-        }
+        
 
         /**
          * Get the value of numGenre
@@ -432,7 +432,7 @@ use PSpell\Config;
          */ 
         public function setNumGenre($numGenre)
         {
-                $this->numGenre = $numGenre;
+                $this->numGenre = $genre->getNum();
 
                 return $this;
         }

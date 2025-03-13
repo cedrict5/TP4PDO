@@ -35,7 +35,7 @@
                         <?php 
                         foreach($lesAuteurs as $auteur){
                             if($mode == "Modifier"){
-                            $selection=$auteur->num == $livre->getAuteur()->getNum() ? 'selected' : '';
+                            $selection=$auteur->num == $livre->getNumAuteur()->getNum() ? 'selected' : '';
                             }
                             echo "<option value='".$auteur->num ."'". $selection .">". $auteur->nom."</option>";
                         }
@@ -50,14 +50,14 @@
                         <?php 
                         foreach($lesGenres as $genre){
                             if($mode == "Modifier"){
-                            $selection=$genre->getNum()== $leGenre->getGenre()->getNum() ? 'selected' : '';
+                            $selection=$genre->getNum()== $livre->getNumGenre()->getNum() ? 'selected' : '';
                             }
                             echo "<option value='".$genre->getNum() ."'". $selection .">". $genre->getLibelle() ."</option>";
                         }
                         ?>
                     </select>
                 </div>
-                <input type="hidden" id="num" name="num" value="<?php if($mode == "Modifier") {echo $leGenre->getNum();} ?>">
+                <input type="hidden" id="num" name="num" value="<?php if($mode == "Modifier") {echo $livre->getNum();} ?>">
 
 
                 

@@ -49,16 +49,17 @@ switch($action){
                 $message ="ajouté"; 
 
             }else{//cas d'une modif 
-                //$livre->setNum($_POST['num']);
+
+                $livre->setIsbn($_POST['isbn']);
                 $livre->setTitre($_POST['titre']);
                 $livre->setPrix($_POST['prix']);
                 $livre->setEditeur($_POST['editeur']);
                 $livre->setAnnee($_POST['annee']);
                 $livre->setLangue($_POST['langue']);
                 $lauteur=Auteur::findById($_POST['auteur']);
-                $livre->setAuteur($lauteur);
+                $livre->setNumAuteur($lauteur);
                 $legenre=Genre::findById($_POST['genre']);
-                $livre->setGenre($legenre);
+                $livre->setNumGenre($legenre);
                 $nb=Livre::update($livre);
                 $message ="modifié";
             }

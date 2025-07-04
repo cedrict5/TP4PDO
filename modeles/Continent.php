@@ -56,7 +56,7 @@ use PSpell\Config;
          */
         public static function findAll() :array
         {
-            $req=MonPdo::getInstance()->prepare("Select * from continent");
+            $req=MonPdo::getInstance()->prepare("Select * from continent order by continent.num");
             $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
             $req->execute();
             $lesResultats=$req->fetchAll();

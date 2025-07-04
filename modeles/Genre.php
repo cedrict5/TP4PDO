@@ -56,7 +56,7 @@ use PSpell\Config;
          */
         public static function findAll() :array
         {
-            $req=MonPdo::getInstance()->prepare("Select * from genre");
+            $req=MonPdo::getInstance()->prepare("Select * from genre order by genre.num");
             $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Genre');
             $req->execute();
             $lesResultats=$req->fetchAll();

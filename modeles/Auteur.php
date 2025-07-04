@@ -45,7 +45,7 @@ use PSpell\Config;
         if( $nationalite != "Toutes") {
         $texteReq.= " and nationalite.num =" .$nationalite;
         }
-        $texteReq.=" order by nationalite.libelle;";
+        $texteReq.=" order by nationalite.num;";
 
 
             $req=MonPdo::getInstance()->prepare($texteReq);

@@ -58,7 +58,7 @@
             if( $continent != "Tous") {
                  $texteReq.= " and c.num =" .$continent;
             }
-            $texteReq.=" order by n.libelle;";
+            $texteReq.=" order by n.num;";
 
             $req=MonPdo::getInstance()->prepare($texteReq);
             $req->setFetchMode(PDO::FETCH_OBJ);
